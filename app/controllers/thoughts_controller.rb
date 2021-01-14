@@ -4,7 +4,8 @@ class ThoughtsController < ApplicationController
   # GET /thoughts
   # GET /thoughts.json
   def index
-    @thoughts = Thought.all
+    @thoughts = Thought.all.order("created_at DESC")
+    @thought = Thought.new
   end
 
   # GET /thoughts/1
@@ -28,7 +29,7 @@ class ThoughtsController < ApplicationController
 
     respond_to do |format|
       if @thought.save
-        format.html { redirect_to @thought, notice: 'Thought was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Thought was successfully created.' }
         format.json { render :show, status: :created, location: @thought }
       else
         format.html { render :new }

@@ -10,16 +10,57 @@
   </head>
 
   <body>
-  <% if flash[:notice] %>
-    <div class="notification is-primary global-notification">
-      <p class="notice"><%= notice %></p>
-    </div>
-  <% end %>
-  <% if flash[:alert] %>
-    <div class="notification is-danger global-notification">
-      <p class="alert"><%= alert %></p>
-    </div>
-  <% end %>
-    <%= yield %>
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    <section class="columns is-fullheight">
+      
+      <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+        <p class="menu-label is-hidden-touch">Profile</p>
+        <ul class="menu-list">
+          <li>
+            <a href="#" class="">
+              <span class="icon"><i class="fa fa-home"></i></span> Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="icon"><i class="fa fa-table"></i></span> Links
+            </a>
+
+            <ul>
+              <li>
+                <a href="#">
+                  <span class="icon is-small"><i class="fa fa-link"></i></span> Link1
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="icon is-small"><i class="fa fa-link"></i></span> Link2
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="">
+              <span class="icon"><i class="fa fa-info"></i></span> About
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div class="main column is-10">
+      <%= render 'common/navbar'%>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

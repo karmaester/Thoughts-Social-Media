@@ -14,4 +14,23 @@
  *= require_self
  */
 
- @import "bulma";
+@import "bulma";
+
+.navbar-brand .title {
+    color: white;
+}
+
+.image {
+    border-radius: 50%;
+}
+
+.notification:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.main {
+    padding: 0;
+}
+.columns {
+    margin: 0;
+}
