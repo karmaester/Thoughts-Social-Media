@@ -21,10 +21,11 @@
       </div>
     <% end %>
     <section class="columns is-fullheight">
-      
+      <% if user_signed_in? %>
       <aside class="column is-2 is-narrow-mobile panel is-fullheight is-hidden-mobile">
       <%= render 'profile'%>
       </aside>
+      <% end %>
       <div class="main column is-10">
       <%= render 'common/navbar'%>
         <div class="container">
