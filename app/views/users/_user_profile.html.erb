@@ -1,0 +1,33 @@
+    <div class="panel-block ">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64 o-hide">
+                    <%= image_tag @user.avatar_image %>
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <strong><%= @user.name %></strong>
+                    <br>
+                    <small><%= @user.username %></small>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="panel-block mt-3">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <p class="heading has-text-centered">Tweets</p>
+                <p class="title is-6 has-text-centered"><%= '21' %></p>
+            </div>
+            <div class="tile is-vertical">
+                <p class="heading has-text-centered">Following</p>
+                <p class="title is-6 has-text-centered">123</p>
+            </div>
+            <div class="tile is-vertical">
+                <p class="heading has-text-centered">Followers</p>
+                <p class="title is-6 has-text-centered">215</p>
+            </div>
+        </div>
+        <br>
+    </div>

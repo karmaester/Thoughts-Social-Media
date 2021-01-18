@@ -6,6 +6,7 @@ class ThoughtsController < ApplicationController
   def index
     @thoughts = Thought.all.order("created_at DESC")
     @thought = Thought.new
+    @users = User.all
   end
 
   # GET /thoughts/1

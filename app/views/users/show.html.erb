@@ -1,38 +1,46 @@
-<section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
-  <%=  add_friend(@user) %>
-  <article class="timeline">
-    <h3>Recent posts:</h3>
-    <ul class="posts">
-      <%= render @posts %>
-    </ul>
-    <ul class="posts">
-    <h3>Friends</h3>
-    <% @user.friends.each do |user| %>
-      <%= link_to user.name, user_path(user.id)  %>
-        <% if current_user.id == @user.id %>
-      <%= link_to 'Unfriend', unfriend_path(user_id: user.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
-        <% end %>
-    <% end %>
-    </ul>
-    <ul class="posts">
-    <% if current_user.id == @user.id %>
-      <li class="posts">
-      <h3>Friends Requests</h3>
-      <% current_user.friend_requests.each do |person| %>
-        <%= link_to person.name, user_path(person.id)  %>
-        <%= link_to 'Accept', accept_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-success', method: :post %>
-        <%= link_to 'Reject', reject_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
-      <% end %>
-      </li>
-      <li class="posts">
-      <h3>Pending invitations</h3>
-      <% current_user.pending_friends.each do |person| %>
-        <%= link_to person.name, user_path(person.id)  %>
-        <%= link_to 'Cancel invitation', cancel_path(user_id: person.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
-      <% end %>
-      </li>
-    <% end %>
-    </ul>
-  </article>
+<section>
+  <div class="columns">
+  <div class="column is-8 p-0">
+    <%= image_tag @user.cover_image , class: "cover"%>
+    <div class="p-3">
+    <article class="media box">
+        <figure class="media-left">
+            <p class="image is-64x64 o-hide">
+            <% if user_signed_in? %>
+                <%= image_tag current_user.avatar_image %>
+            <% end %>
+            </p>
+        </figure>
+        <div class="media-content">
+            <%= render 'common/form' %>
+        </div>
+    </article>
+
+<% @thoughts.each do |thought| %>
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64 o-hide">
+                    <%= image_tag thought.user.avatar_image %>
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <strong><%=thought.user.name%></strong> <br>
+                    <small><%=thought.user.username%></small> <br>
+                    <p> <%= thought.thought %> </p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+<% end %>
+
+</div>
+</div>
+    <div class="column">
+    <%= render 'user_profile' %>
+    <%= render 'common/who-to-follow' %>
+    </div>
+  </div>
 </section>

@@ -1,3 +1,7 @@
+<nav class="panel">
+    <p class="panel-heading">Who to follow</p>
+</nav>
+<% @users.each do |user| %>
 <div class="panel-block">
     <article class="media">
         <div class="media-left">
@@ -8,10 +12,12 @@
         <div class="media-content">
             <div class="content">
                 <p>
-                    <strong><%= link_to user.name,  user_path(user) %></strong>
-                    <small><%= link_to user.username,  user_path(user) %></small>
+                    <strong><%= link_to user.name,  user_path(user) ,class: "has-text-black" %></strong>
+                    <small><%= link_to user.username,  user_path(user) ,class: "has-text-black" %></small>
                 </p>
             </div>
         </div>
     </article>
 </div>
+<% end %>
+
