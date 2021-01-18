@@ -16,6 +16,9 @@
 
 @import "bulma";
 
+aside {
+    min-height: 100vh;
+}
 .navbar-brand .title {
     color: white;
 }
@@ -41,4 +44,8 @@ aside {
 
 .panel {
     border-radius: 0;
+}
+
+.o-hide {
+    overflow: hidden;
 }

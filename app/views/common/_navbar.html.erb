@@ -17,7 +17,7 @@
                 <%= link_to 'New Thought', new_thought_path, class: "button is-info is-inverted" %> 
                 </p>
                 <p class="control">
-                <%= link_to current_user.email, edit_user_registration_path, class: "button is-info" %>
+                <%= link_to current_user.username, edit_user_registration_path, class: "button is-info" %>
                 </p>
                 <p class="control">
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "button is-danger" %>

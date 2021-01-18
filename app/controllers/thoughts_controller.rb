@@ -25,7 +25,7 @@ class ThoughtsController < ApplicationController
   # POST /thoughts
   # POST /thoughts.json
   def create
-    @thought = Thought.new(thought_params)
+    @thought = current_user.thoughts.new(thought_params)
 
     respond_to do |format|
       if @thought.save
@@ -70,6 +70,6 @@ class ThoughtsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def thought_params
-      params.require(:thought).permit(:thought)
+      params.require(:thought).permit(:thought, :user_id)
     end
 end
