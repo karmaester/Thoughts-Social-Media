@@ -10,6 +10,7 @@
                 <p>
                     <strong><%= link_to user.name,  user_path(user) %></strong>
                     <small><%= link_to user.username,  user_path(user) %></small>
+                    <%= follow_unfollow(user) %>
                 </p>
             </div>
         </div>

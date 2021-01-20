@@ -11,4 +11,5 @@ class UsersController < ApplicationController
     @thoughts = @user.thoughts
     @thought = Thought.new
   end
+  
 end
