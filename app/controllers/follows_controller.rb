@@ -4,7 +4,7 @@ class FollowsController < ApplicationController
     # POST /followings/user
     # POST /followings/user.json
     def create
-        @follow = Follow.create(follower_id: params[:follower_id], followed_id: params[:followed_id])
+        @follow = Follow.create(follow_params)
         if @follow.save
             flash[:notice] = "You started following"
         else
@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     # DELETE /followings/1
     # DELETE /followings/1.json
     def destroy
-        @follow = Follow.find_by(follower_id: params[:follower_id], followed_id: params[:followed_id])
+        @follow = Follow.where(follower_id: current_user.id, followed_id: user.id).first
         @follow.destroy
         redirect_to users_path, notice: 'You successfully unfollowed'
     end
@@ -24,7 +24,7 @@ class FollowsController < ApplicationController
     private
 
     def follow_params
-        params.fetch(:follow, {})
-      end
+        params.require(:follow).permit(:follower_id, :followed_id)
+    end
 
 end
