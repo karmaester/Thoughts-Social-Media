@@ -14,7 +14,7 @@ module UsersHelper
     if user.avatar_image.attached?
       image_tag user.avatar_image
     else
-      image_tag('avatar.jpeg', class: 'rounded-circle', height: 130, width: 130)
+      image_tag('/images/avatar.jpeg', class: 'rounded-circle', height: 130, width: 130)
     end
   end
 
@@ -22,7 +22,7 @@ module UsersHelper
     if @user.cover_image.attached?
       image_tag @user.cover_image, class: 'cover'
     else
-      image_tag('cover.jpg', class: 'cover')
+      image_tag('/images/cover.jpg', class: 'cover')
     end
   end
 end
