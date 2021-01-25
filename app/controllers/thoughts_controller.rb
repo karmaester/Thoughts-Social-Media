@@ -36,18 +36,6 @@ class ThoughtsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /thoughts/1
-  # PATCH/PUT /thoughts/1.json
-  def update
-    respond_to do |format|
-      if @thought.update(thought_params)
-        format.html { redirect_to @thought, notice: 'Thought was successfully updated.' }
-        format.json { render :show, status: :ok, location: @thought }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
 
   # DELETE /thoughts/1
   # DELETE /thoughts/1.json

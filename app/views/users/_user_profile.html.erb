@@ -11,7 +11,11 @@
                     <br>
                     <small><%= @user.username %></small>
                     <br>
+                    <% if @user == current_user %>
+                    <%= link_to 'Edit profile', edit_user_registration_path, class: "button is-info" %>
+                    <% else %>
                     <%= follow_unfollow(@user) %>
+                    <% end %>
                 </div>
             </div>
         </article>
