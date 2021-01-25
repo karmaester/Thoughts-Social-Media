@@ -2,7 +2,7 @@
         <article class="media">
             <div class="media-left">
                 <figure class="image is-64x64 o-hide">
-                    <%= image_tag current_user.avatar_image %>
+                    <%= user_avatar(current_user) %>
                 </figure>
             </div>
             <div class="media-content">
@@ -18,15 +18,15 @@
         <div class="tile is-ancestor">
             <div class="tile is-vertical">
                 <p class="heading has-text-white has-text-centered">Tweets</p>
-                <p class="title is-6 has-text-white has-text-centered"><%= '21' %></p>
+                <p class="title is-6 has-text-white has-text-centered"><%= current_user.thoughts.count %></p>
             </div>
             <div class="tile is-vertical">
                 <p class="heading has-text-white has-text-centered">Following</p>
-                <p class="title is-6 has-text-white has-text-centered">123</p>
+                <p class="title is-6 has-text-white has-text-centered"><%= current_user.followds.count %></p>
             </div>
             <div class="tile is-vertical">
                 <p class="heading has-text-white has-text-centered">Followers</p>
-                <p class="title is-6 has-text-white has-text-centered">215</p>
+                <p class="title is-6 has-text-white has-text-centered"><%= current_user.follows.count %></p>
             </div>
         </div>
         <br>

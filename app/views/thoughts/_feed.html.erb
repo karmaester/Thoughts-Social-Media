@@ -3,7 +3,7 @@
         <figure class="media-left">
             <p class="image is-64x64 o-hide">
             <% if user_signed_in? %>
-                <%= image_tag current_user.avatar_image %>
+                <%= user_avatar(current_user) %>
             <% end %>
             </p>
         </figure>
@@ -17,7 +17,7 @@
         <article class="media">
             <div class="media-left">
                 <figure class="image is-64x64 o-hide">
-                    <%= image_tag thought.user.avatar_image %>
+                    <%= user_avatar(thought.user) %>
                 </figure>
             </div>
             <div class="media-content">
@@ -26,6 +26,15 @@
                     <small><%=thought.user.username%></small> <br>
                     <p> <%= thought.thought %> </p>
                 </div>
+                <% if user_signed_in? && current_user.id == thought.user_id %>
+                    <nav class="level">
+                        <div class="level-left is-mobile">
+                            <%= link_to thought, method: :delete, data: { confirm: "Are you sure you want to delete this thought?" } do %>
+                                <span class="icon"><i class="fa fa-trash-o" aria-hidden= "true"></i></span>
+                            <% end %>
+                        </div>
+                    </nav>
+                    <% end %>
             </div>
         </article>
     </div>

@@ -1,13 +1,13 @@
 <section>
   <div class="columns">
   <div class="column is-8 p-0">
-    <%= image_tag @user.cover_image , class: "cover"%>
+    <%= user_cover %>
     <div class="p-3">
     <article class="media box">
         <figure class="media-left">
             <p class="image is-64x64 o-hide">
             <% if user_signed_in? %>
-                <%= image_tag current_user.avatar_image %>
+                <%= user_avatar(current_user) %>
             <% end %>
             </p>
         </figure>
@@ -21,7 +21,7 @@
         <article class="media">
             <div class="media-left">
                 <figure class="image is-64x64 o-hide">
-                    <%= image_tag thought.user.avatar_image %>
+                    <%= user_avatar(thought.user) %>
                 </figure>
             </div>
             <div class="media-content">
