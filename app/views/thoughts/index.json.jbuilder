@@ -1,1 +1,1 @@
-json.array! @thoughts, partial: "thoughts/thought", as: :thought
+json.array! @thoughts, partial: 'thoughts/thought', as: :thought

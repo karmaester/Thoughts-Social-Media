@@ -1,1 +1,1 @@
-json.partial! "thoughts/thought", thought: @thought
+json.partial! 'thoughts/thought', thought: @thought

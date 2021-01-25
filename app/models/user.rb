@@ -17,5 +17,4 @@ class User < ApplicationRecord
   def any_attached?
     ActiveStorage::Attachment.where(record_type: avatar_image.to_s, record_id: id).any?
   end
-
 end

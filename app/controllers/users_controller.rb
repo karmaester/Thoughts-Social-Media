@@ -11,5 +11,4 @@ class UsersController < ApplicationController
     @thoughts = @user.thoughts.includes([:user])
     @thought = Thought.new
   end
-  
 end

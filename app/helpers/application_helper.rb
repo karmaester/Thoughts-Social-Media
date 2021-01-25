@@ -1,3 +1,3 @@
 module ApplicationHelper
-    include UsersHelper
+  include UsersHelper
 end
