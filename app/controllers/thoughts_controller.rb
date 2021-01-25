@@ -6,7 +6,7 @@ class ThoughtsController < ApplicationController
   def index
     @thoughts = Thought.all.order("created_at DESC").includes([:user])
     @thought = Thought.new
-    @users = User.all
+    @users = User.all.includes([:avatar_image_attachment])
   end
 
   # GET /thoughts/1
