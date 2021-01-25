@@ -14,7 +14,8 @@ module UsersHelper
     if user.avatar_image.attached?
       image_tag user.avatar_image
     else
-      image_tag('https://images.emojiterra.com/twitter/512px/1f464.png', class: 'rounded-circle', height: 130, width: 130)
+      image_tag('https://images.emojiterra.com/twitter/512px/1f464.png', class: 'rounded-circle', height: 130,
+                                                                         width: 130)
     end
   end
 
@@ -22,7 +23,9 @@ module UsersHelper
     if @user.cover_image.attached?
       image_tag @user.cover_image, class: 'cover'
     else
-      image_tag('https://cultivatedculture.com/wp-content/uploads/2019/05/Chromatic-LinkedIn-Cover-Photo-Background.png', class: 'cover')
+      image_tag(
+        'https://cultivatedculture.com/wp-content/uploads/2019/05/Chromatic-LinkedIn-Cover-Photo-Background.png', class: 'cover'
+      )
     end
   end
 end

@@ -36,7 +36,6 @@ class ThoughtsController < ApplicationController
     end
   end
 
-
   # DELETE /thoughts/1
   # DELETE /thoughts/1.json
   def destroy
