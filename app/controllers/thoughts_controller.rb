@@ -32,7 +32,6 @@ class ThoughtsController < ApplicationController
         format.json { render :show, status: :created, location: @thought }
       else
         format.html { render :index }
-        format.json { render json: @thought.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +45,6 @@ class ThoughtsController < ApplicationController
         format.json { render :show, status: :ok, location: @thought }
       else
         format.html { render :edit }
-        format.json { render json: @thought.errors, status: :unprocessable_entity }
       end
     end
   end
