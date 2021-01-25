@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     # DELETE /followings/1
     # DELETE /followings/1.json
     def destroy
-        @follow = Follow.where(follower_id: current_user.id, followed_id: user.id).first
+        @follow = Follow.where(follower_id: current_user.id, followed_id: params[:id]).first
         @follow.destroy
         redirect_to users_path, notice: 'You successfully unfollowed'
     end
