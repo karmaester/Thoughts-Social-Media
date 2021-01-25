@@ -24,7 +24,7 @@ module UsersHelper
       image_tag @user.cover_image, class: 'cover'
     else
       image_tag(
-        'https://cultivatedculture.com/wp-content/uploads/2019/05/Chromatic-LinkedIn-Cover-Photo-Background.png', class: 'cover'
+        'https://i.ibb.co/ThDZL98/Chromatic-Linked-In-Cover-Photo-Background.png', class: 'cover'
       )
     end
   end
