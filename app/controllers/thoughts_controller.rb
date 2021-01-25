@@ -4,7 +4,7 @@ class ThoughtsController < ApplicationController
   # GET /thoughts
   # GET /thoughts.json
   def index
-    @thoughts = Thought.all.order("created_at DESC")
+    @thoughts = Thought.all.order("created_at DESC").includes([:user])
     @thought = Thought.new
     @users = User.all
   end
