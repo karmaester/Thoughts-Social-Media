@@ -33,7 +33,7 @@ class ThoughtsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Thought was successfully created.' }
         format.json { render :show, status: :created, location: @thought }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @thought.errors, status: :unprocessable_entity }
       end
     end

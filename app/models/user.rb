@@ -11,6 +11,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence: true
+  validates :username, uniqueness: true
+
   def any_attached?
     ActiveStorage::Attachment.where(record_type: avatar_image.to_s, record_id: id).any?
   end
