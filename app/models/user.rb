@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one_attached :avatar_image
   has_one_attached :cover_image
   has_many :thoughts
+  has_many :likes
   has_many :followeds, class_name: 'Follow', foreign_key: 'follower_id', dependent: :destroy
   has_many :followds, through: :followeds, source: :followed
   has_many :followers, class_name: 'Follow', foreign_key: 'followed_id', dependent: :destroy

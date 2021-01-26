@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_180756) do
+ActiveRecord::Schema.define(version: 2021_01_26_185031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2021_01_19_180756) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "thought_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["thought_id"], name: "index_likes_on_thought_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "thoughts", force: :cascade do |t|
     t.text "thought"
     t.datetime "created_at", precision: 6, null: false
@@ -70,5 +79,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_180756) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "follows", "users", column: "followed_id"
   add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "likes", "thoughts"
+  add_foreign_key "likes", "users"
   add_foreign_key "thoughts", "users"
 end

@@ -3,12 +3,12 @@ module UsersHelper
     if current_user == user
       nil
     elsif current_user.followds.include?(user)
-      cntnt = link_to 'Unfollow', follow_path(user), method: :delete, class: 'button is-info'
-      return cntnt 
+      link_to 'Unfollow', follow_path(user), method: :delete, class: 'button is-info'
+
     else
-      cntnt = link_to 'Follow', follows_path(follow: { follower_id: current_user.id, followed_id: user.id }),
-                      method: :post, class: 'button is-info'
-      return cntnt 
+      link_to 'Follow', follows_path(follow: { follower_id: current_user.id, followed_id: user.id }),
+              method: :post, class: 'button is-info'
+
     end
   end
 
