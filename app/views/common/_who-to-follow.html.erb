@@ -2,7 +2,7 @@
     <p class="panel-heading">Who to follow</p>
 </nav>
 <% @users.each do |user| %>
-<% if user != current_user && !current_user.followds.include?(user)%>
+<% if display_unfollowed(user)%>
 <div class="panel-block">
     <article class="media">
         <div class="media-left">
