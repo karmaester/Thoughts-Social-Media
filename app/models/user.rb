@@ -12,7 +12,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  validates :name, length: { minimum: 2 }
   validates :username, uniqueness: true
+  validates :username, length: { maximum: 15 }
+  validates :password, length: { in: 6..20 }
 
   def any_attached?
     ActiveStorage::Attachment.where(record_type: avatar_image.to_s, record_id: id).any?
