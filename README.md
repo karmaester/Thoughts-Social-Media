@@ -26,10 +26,22 @@ Postgres: >=9.5
 
 ### Setup
 
+Clone the repository locally from here
+
+```
+git@github.com:karmaester/Thoughts-Social-Media.git
+```
+
 Instal gems with:
 
 ```
 bundle install
+```
+
+Instal yarn with:
+
+```
+yarn install
 ```
 
 Setup database with:
@@ -89,6 +101,8 @@ Give a ⭐️ if you like this project!
 - Rails guides
 - Microverse
 - Stand up Team
+- Gregoire Vella https://www.behance.net/gregoirevella
+
 
 ## 📝 License
 
