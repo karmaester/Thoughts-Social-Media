@@ -1,0 +1,39 @@
+    <div class="panel-block ">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64 o-hide">
+                    <%= user_avatar(@user) %>
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <strong><%= @user.name %></strong>
+                    <br>
+                    <small><%= @user.username %></small>
+                    <br>
+                    <% if @user == current_user %>
+                    <%= link_to 'Edit profile', edit_user_registration_path, class: "button is-info" %>
+                    <% else %>
+                    <%= follow_unfollow(@user) %>
+                    <% end %>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="panel-block mt-3">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <p class="heading has-text-centered">Thoughts</p>
+                <p class="title is-6 has-text-centered"><%= @user.thoughts.count %></p>
+            </div>
+            <div class="tile is-vertical">
+                <p class="heading has-text-centered">Following</p>
+                <p class="title is-6 has-text-centered"><%= @user.followds.count %></p>
+            </div>
+            <div class="tile is-vertical">
+                <p class="heading has-text-centered">Followers</p>
+                <p class="title is-6 has-text-centered"><%= @user.follows.count %></p>
+            </div>
+        </div>
+        <br>
+    </div>

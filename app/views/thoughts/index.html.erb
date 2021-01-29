@@ -1,0 +1,10 @@
+<section>
+  <div class="columns">
+    <%= render 'feed' %>
+    <div class="column">
+    <% if current_user.present? %>
+    <%= render 'common/who-to-follow' %>
+    <% end %>
+    </div>
+  </div>
+</section>

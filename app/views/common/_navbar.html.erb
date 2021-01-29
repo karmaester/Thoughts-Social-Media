@@ -1,0 +1,33 @@
+<nav class="navbar has-shadow is-info">
+    <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+            <h1 class="title is-5">Thoughts</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExample">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="field is-grouped mt-2 mr-2">
+                <% if user_signed_in? %>
+                <p class="control">
+                <%= link_to current_user.username, user_path(current_user), class: "button is-info" %>
+                </p>
+                <p class="control">
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "button is-danger" %>
+                </p>
+                <% else %>
+                <p class="control">
+                <%= link_to 'Sign in', new_user_session_path, class: "button is-success" %>
+                </p>
+                <p class="control">
+                <%= link_to 'Sign up', new_user_registration_path, class: "button is-success" %>
+                </p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</nav>

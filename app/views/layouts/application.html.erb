@@ -4,12 +4,34 @@
     <title>Thoughts</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    <section class="columns is-fullheight">
+      <% if user_signed_in? %>
+      <aside class="column is-2 is-narrow-mobile panel is-hidden-mobile is-fullheight">
+      <%= render 'common/profile'%>
+      </aside>
+      <% end %>
+      <div class="main column">
+      <%= render 'common/navbar'%>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

@@ -1,0 +1,33 @@
+    <div class="panel-block">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64 o-hide">
+                    <%= user_avatar(current_user) %>
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <strong class="has-text-white"><%= current_user.name %></strong>
+                    <br>
+                    <small class="has-text-white"><%= current_user.username %></small>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="panel-block mt-3">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <p class="heading has-text-white has-text-centered">Thoughts</p>
+                <p class="title is-6 has-text-white has-text-centered"><%= current_user.thoughts.count %></p>
+            </div>
+            <div class="tile is-vertical">
+                <p class="heading has-text-white has-text-centered">Following</p>
+                <p class="title is-6 has-text-white has-text-centered"><%= current_user.followds.count %></p>
+            </div>
+            <div class="tile is-vertical">
+                <p class="heading has-text-white has-text-centered">Followers</p>
+                <p class="title is-6 has-text-white has-text-centered"><%= current_user.follows.count %></p>
+            </div>
+        </div>
+        <br>
+    </div>

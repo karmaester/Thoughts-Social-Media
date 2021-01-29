@@ -1,0 +1,27 @@
+<nav class="panel">
+    <p class="panel-heading">Who to follow</p>
+</nav>
+<% @users.each do |user| %>
+<% if display_unfollowed(user)%>
+<div class="panel-block">
+    <article class="media">
+        <div class="media-left">
+            <figure class="image is-32x32 o-hide">
+                <%= user_avatar(user)%>
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong><%= link_to user.name,  user_path(user) ,class: "has-text-black" %></strong>
+                    <small><%= link_to user.username,  user_path(user) ,class: "has-text-black" %></small>
+                    <%= follow_unfollow(user) %>
+                </p>
+            </div>
+        </div>
+    </article>
+</div>
+<% end %>
+<% end %>
+<%= link_to 'See all', users_path%>
+

@@ -1,0 +1,18 @@
+<div class="panel-block">
+    <article class="media">
+        <div class="media-left">
+            <figure class="image is-32x32 o-hide">
+                <%= user_avatar(user) %>
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong><%= link_to user.name,  user_path(user) %></strong>
+                    <small><%= link_to user.username,  user_path(user) %></small>
+                    <%= follow_unfollow(user) %>
+                </p>
+            </div>
+        </div>
+    </article>
+</div>
